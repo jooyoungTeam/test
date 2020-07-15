@@ -35,7 +35,7 @@ void bullet::fire(float x, float y, float angle, float speed)
 	tagBullet bullet;
 	ZeroMemory(&bullet, sizeof(tagBullet));
 
-	bullet.bulletImage = IMAGEMANAGER->findImage(_imageName);
+	bullet.bulletImage = IMAGE_M->findImage(_imageName);
 	bullet.speed = speed;
 	bullet.radius = bullet.bulletImage->getWidth() / 2;
 	bullet.x = bullet.fireX = x;

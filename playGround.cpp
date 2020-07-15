@@ -54,7 +54,7 @@ void playGround::render()
 
 	
 
-	TIMEMANAGER->render(getMemDC());
+	TIME_M->render(getMemDC());
 	
 	//=============================================
 	_backBuffer->render(getHDC(), 0, 0);

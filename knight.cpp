@@ -13,7 +13,7 @@ knight::~knight()
 
 HRESULT knight::init()
 {
-	_image = IMAGEMANAGER->addFrameImage("knight", "knight.bmp", 0, 0, 612, 312, 9, 4, true, RGB(255, 0, 255));
+	_image = IMAGE_M->addFrameImage("knight", "knight.bmp", 0, 0, 612, 312, 9, 4, true, RGB(255, 0, 255));
 
 	_knightDirection = KNIGHTDIRECTION_RIGHT_STOP;
 
@@ -24,37 +24,37 @@ HRESULT knight::init()
 		_image->getFrameHeight());
 
 	int rightStop[] = { 0 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightRightStop", "knight", rightStop, 1, 6, true);
+	KEYANI_M->addArrayFrameAnimation("knightRightStop", "knight", rightStop, 1, 6, true);
 
 	int leftStop[] = { 9 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightLeftStop", "knight", leftStop, 1, 6, true);
+	KEYANI_M->addArrayFrameAnimation("knightLeftStop", "knight", leftStop, 1, 6, true);
 
 	int rightMove[] = { 1,2,3,4,5,6 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightRightMove", "knight", rightMove, 6, 10, true);
+	KEYANI_M->addArrayFrameAnimation("knightRightMove", "knight", rightMove, 6, 10, true);
 
 	int leftMove[] = { 10, 11, 12, 13, 14, 15 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightLeftMove", "knight", leftMove, 6, 10, true);
+	KEYANI_M->addArrayFrameAnimation("knightLeftMove", "knight", leftMove, 6, 10, true);
 
 	int arrRightAttack[] = { 7, 8 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightRightAttack", "knight", arrRightAttack, 2, 10, false, rightFire, this);
+	KEYANI_M->addArrayFrameAnimation("knightRightAttack", "knight", arrRightAttack, 2, 10, false, rightFire, this);
 
 	int arrLeftAttack[] = { 16, 17 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightLeftAttack", "knight", arrLeftAttack, 2, 10, false, leftFire, this);
+	KEYANI_M->addArrayFrameAnimation("knightLeftAttack", "knight", arrLeftAttack, 2, 10, false, leftFire, this);
 
 	int arrRightJump[] = { 22, 24, 25 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightRightJump", "knight", arrRightJump, 3, 4, false, rightJump, this);
+	KEYANI_M->addArrayFrameAnimation("knightRightJump", "knight", arrRightJump, 3, 4, false, rightJump, this);
 
 	int arrLeftJump[] = { 31, 33, 34 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightLeftJump", "knight", arrLeftJump, 3, 4, false, leftJump, this);
+	KEYANI_M->addArrayFrameAnimation("knightLeftJump", "knight", arrLeftJump, 3, 4, false, leftJump, this);
 
 	int arrRightMoveJump[] = { 21, 23 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightRightMoveJump", "knight", arrRightMoveJump, 2, 3, false, rightMoveJump, this);
+	KEYANI_M->addArrayFrameAnimation("knightRightMoveJump", "knight", arrRightMoveJump, 2, 3, false, rightMoveJump, this);
 
 	int arrLeftMoveJump[] = { 30, 32 };
-	KEYANIMANAGER->addArrayFrameAnimation("knightLeftMoveJump", "knight", arrLeftMoveJump, 2, 3, false, leftMoveJump, this);
+	KEYANI_M->addArrayFrameAnimation("knightLeftMoveJump", "knight", arrLeftMoveJump, 2, 3, false, leftMoveJump, this);
 
 
-	_knightMotion = KEYANIMANAGER->findAnimation("knightRightStop");
+	_knightMotion = KEYANI_M->findAnimation("knightRightStop");
 
 	_jump = new jump;
 	_jump->init();
@@ -68,38 +68,38 @@ void knight::release()
 
 void knight::update()
 {
-	if (KEYMANAGER->isOnceKeyDown(VK_RIGHT))
+	if (KEY_M->isOnceKeyDown(VK_RIGHT))
 	{
 		_knightDirection = KNIGHTDIRECTION_RIGHT_MOVE;
-		_knightMotion = KEYANIMANAGER->findAnimation("knightRightMove");
+		_knightMotion = KEYANI_M->findAnimation("knightRightMove");
 		_knightMotion->start();
 	}
-	if (KEYMANAGER->isOnceKeyUp(VK_RIGHT))
+	if (KEY_M->isOnceKeyUp(VK_RIGHT))
 	{
 		_knightDirection = KNIGHTDIRECTION_RIGHT_STOP;
-		_knightMotion = KEYANIMANAGER->findAnimation("knightRightStop");
+		_knightMotion = KEYANI_M->findAnimation("knightRightStop");
 		_knightMotion->start();
 	}
-	if (KEYMANAGER->isOnceKeyDown(VK_LEFT))
+	if (KEY_M->isOnceKeyDown(VK_LEFT))
 	{
 		_knightDirection = KNIGHTDIRECTION_LEFT_MOVE;
-		_knightMotion = KEYANIMANAGER->findAnimation("knightLeftMove");
+		_knightMotion = KEYANI_M->findAnimation("knightLeftMove");
 		_knightMotion->start();
 	}
-	if (KEYMANAGER->isOnceKeyUp(VK_LEFT))
+	if (KEY_M->isOnceKeyUp(VK_LEFT))
 	{
 		_knightDirection = KNIGHTDIRECTION_LEFT_STOP;
-		_knightMotion = KEYANIMANAGER->findAnimation("knightLeftStop");
+		_knightMotion = KEYANI_M->findAnimation("knightLeftStop");
 		_knightMotion->start();
 	}
 
-	if (KEYMANAGER->isOnceKeyDown('Z'))
+	if (KEY_M->isOnceKeyDown('Z'))
 	{
 		if (_knightDirection == KNIGHTDIRECTION_RIGHT_STOP ||
 			_knightDirection == KNIGHTDIRECTION_RIGHT_MOVE)
 		{
 			_knightDirection = KNIGHTDIRECTION_RIGHT_ATTACK;
-			_knightMotion = KEYANIMANAGER->findAnimation("knightRightAttack");
+			_knightMotion = KEYANI_M->findAnimation("knightRightAttack");
 			_knightMotion->start();
 		}
 
@@ -107,25 +107,25 @@ void knight::update()
 			_knightDirection == KNIGHTDIRECTION_LEFT_MOVE)
 		{
 			_knightDirection = KNIGHTDIRECTION_LEFT_ATTACK;
-			_knightMotion = KEYANIMANAGER->findAnimation("knightLeftAttack");
+			_knightMotion = KEYANI_M->findAnimation("knightLeftAttack");
 			_knightMotion->start();
 		}
 	}
 
-	if (KEYMANAGER->isOnceKeyDown(VK_UP))
+	if (KEY_M->isOnceKeyDown(VK_UP))
 	{
 		_jump->jumping(&_x, &_y, 8.0f, 0.4f);
 
 		if (_knightDirection == KNIGHTDIRECTION_RIGHT_STOP)
 		{
 			_knightDirection = KNIGHTDIRECTION_RIGHT_JUMP;
-			_knightMotion = KEYANIMANAGER->findAnimation("knightRightJump");
+			_knightMotion = KEYANI_M->findAnimation("knightRightJump");
 			_knightMotion->start();
 		}
 		if (_knightDirection == KNIGHTDIRECTION_RIGHT_MOVE)
 		{
 			_knightDirection = KNIGHTDIRECTION_RIGHT_MOVE_JUMP;
-			_knightMotion = KEYANIMANAGER->findAnimation("knightRightMoveJump");
+			_knightMotion = KEYANI_M->findAnimation("knightRightMoveJump");
 			_knightMotion->start();
 		}
 	}
@@ -143,7 +143,7 @@ void knight::update()
 
 	_rc = RectMakeCenter(_x, _y, _image->getFrameWidth(), _image->getFrameHeight());
 
-	KEYANIMANAGER->update();
+	KEYANI_M->update();
 	_jump->update();
 
 }
@@ -158,7 +158,7 @@ void knight::rightFire(void * obj)
 	knight* k = (knight*)obj;
 
 	k->setKnightDirection(KNIGHTDIRECTION_RIGHT_STOP);
-	k->setKnightMotion(KEYANIMANAGER->findAnimation("knightRightStop"));
+	k->setKnightMotion(KEYANI_M->findAnimation("knightRightStop"));
 	k->getKnightMotion()->start();
 }
 
@@ -167,7 +167,7 @@ void knight::leftFire(void * obj)
 	knight* k = (knight*)obj;
 
 	k->setKnightDirection(KNIGHTDIRECTION_RIGHT_STOP);
-	k->setKnightMotion(KEYANIMANAGER->findAnimation("knightRightStop"));
+	k->setKnightMotion(KEYANI_M->findAnimation("knightRightStop"));
 	k->getKnightMotion()->start();
 }
 
@@ -176,7 +176,7 @@ void knight::rightJump(void * obj)
 	knight* k = (knight*)obj;
 
 	k->setKnightDirection(KNIGHTDIRECTION_RIGHT_STOP);
-	k->setKnightMotion(KEYANIMANAGER->findAnimation("knightRightStop"));
+	k->setKnightMotion(KEYANI_M->findAnimation("knightRightStop"));
 	k->getKnightMotion()->start();
 }
 
@@ -189,7 +189,7 @@ void knight::rightMoveJump(void * obj)
 	knight* k = (knight*)obj;
 
 	k->setKnightDirection(KNIGHTDIRECTION_RIGHT_MOVE);
-	k->setKnightMotion(KEYANIMANAGER->findAnimation("knightRightMove"));
+	k->setKnightMotion(KEYANI_M->findAnimation("knightRightMove"));
 	k->getKnightMotion()->start();
 }
 

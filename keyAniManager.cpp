@@ -31,7 +31,7 @@ void keyAniManager::update()
 	{
 		if (!iter->second->isPlay()) continue;
 
-		iter->second->frameUpdate(TIMEMANAGER->getElapsedTime() * 1.0f);
+		iter->second->frameUpdate(TIME_M->getElapsedTime() * 1.0f);
 	}
 
 }
@@ -42,7 +42,7 @@ void keyAniManager::render()
 
 void keyAniManager::addDefaultFrameAnimation(string animationKeyName, const char * imageKeyName, int fps, bool reverse, bool loop)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
@@ -56,7 +56,7 @@ void keyAniManager::addDefaultFrameAnimation(string animationKeyName, const char
 
 void keyAniManager::addDefaultFrameAnimation(string animationKeyName, const char * imageKeyName, int fps, bool reverse, bool loop, void * cbFunction)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
@@ -68,7 +68,7 @@ void keyAniManager::addDefaultFrameAnimation(string animationKeyName, const char
 
 void keyAniManager::addDefaultFrameAnimation(string animationKeyName, const char * imageKeyName, int fps, bool reverse, bool loop, void * cbFunction, void * obj)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
@@ -80,7 +80,7 @@ void keyAniManager::addDefaultFrameAnimation(string animationKeyName, const char
 
 void keyAniManager::addArrayFrameAnimation(string animationKeyName, const char * imageKeyName, int * arr, int arrLen, int fps, bool loop)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
@@ -92,7 +92,7 @@ void keyAniManager::addArrayFrameAnimation(string animationKeyName, const char *
 
 void keyAniManager::addArrayFrameAnimation(string animationKeyName, const char * imageKeyName, int * arr, int arrLen, int fps, bool loop, void * cbFunction)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
@@ -104,7 +104,7 @@ void keyAniManager::addArrayFrameAnimation(string animationKeyName, const char *
 
 void keyAniManager::addArrayFrameAnimation(string animationKeyName, const char * imageKeyName, int * arr, int arrLen, int fps, bool loop, void * cbFunction, void * obj)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
@@ -116,7 +116,7 @@ void keyAniManager::addArrayFrameAnimation(string animationKeyName, const char *
 
 void keyAniManager::addCoordinateFrameAnimation(string animationKeyName, const char * imageKeyName, int start, int end, int fps, bool reverse, bool loop)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
@@ -128,7 +128,7 @@ void keyAniManager::addCoordinateFrameAnimation(string animationKeyName, const c
 
 void keyAniManager::addCoordinateFrameAnimation(string animationKeyName, const char * imageKeyName, int start, int end, int fps, bool reverse, bool loop, void * cbFunction)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());
@@ -140,7 +140,7 @@ void keyAniManager::addCoordinateFrameAnimation(string animationKeyName, const c
 
 void keyAniManager::addCoordinateFrameAnimation(string animationKeyName, const char * imageKeyName, int start, int end, int fps, bool reverse, bool loop, void * cbFunction, void * obj)
 {
-	image* img = IMAGEMANAGER->findImage(imageKeyName);
+	image* img = IMAGE_M->findImage(imageKeyName);
 	animation* ani = new animation;
 
 	ani->init(img->getWidth(), img->getHeight(), img->getFrameWidth(), img->getFrameHeight());

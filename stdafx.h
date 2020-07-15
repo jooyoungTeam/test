@@ -43,13 +43,13 @@ using namespace TTYONE_UTIL;
 #define WINSTYLE	WS_CAPTION | WS_SYSMENU
 
 #define RND randomFunction::getSingleton()
-#define KEYMANAGER keyManager::getSingleton()
-#define IMAGEMANAGER imageManager::getSingleton()
-#define TIMEMANAGER timeManager::getSingleton()
-#define EFFECTMANAGER effectManager::getSingleton()
-#define SOUNDMANAGER soundManager::getSingleton()
-#define SCENEMANAGER sceneManager::getSingleton()
-#define KEYANIMANAGER keyAniManager::getSingleton()
+#define KEY_M keyManager::getSingleton()
+#define IMAGE_M imageManager::getSingleton()
+#define TIME_M timeManager::getSingleton()
+#define EFFECT_M effectManager::getSingleton()
+#define SOUND_M soundManager::getSingleton()
+#define SCENE_M sceneManager::getSingleton()
+#define KEYANI_M keyAniManager::getSingleton()
 #define TXTDATA txtData::getSingleton()
 #define INIDATA iniDataManager::getSingleton()
 

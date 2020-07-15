@@ -86,13 +86,13 @@ void effectManager::addEffect(string effectName, const char * imageName, int ima
 	arrEffects vEffectBuffer;
 	arrEffect mArrEffect;
 
-	if (IMAGEMANAGER->findImage(imageName))
+	if (IMAGE_M->findImage(imageName))
 	{
-		img = IMAGEMANAGER->findImage(imageName);
+		img = IMAGE_M->findImage(imageName);
 	}
 	else
 	{
-		img = IMAGEMANAGER->addImage(imageName, imageName, imageWidth, imageHeight, true, RGB(255, 0, 255));
+		img = IMAGE_M->addImage(imageName, imageName, imageWidth, imageHeight, true, RGB(255, 0, 255));
 	}
 
 	for (int i = 0; i < buffer; ++i)

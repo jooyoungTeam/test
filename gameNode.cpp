@@ -29,13 +29,13 @@ HRESULT gameNode::init(bool managerInit)
 	if (_managerInit)
 	{
 	//	SetTimer(_hWnd, 1, 10, NULL);
-		KEYMANAGER->init();
-		IMAGEMANAGER->init();
-		TIMEMANAGER->init();
-		EFFECTMANAGER->init();
-		SOUNDMANAGER->init();
-		SCENEMANAGER->init();
-		KEYANIMANAGER->init();
+		KEY_M->init();
+		IMAGE_M->init();
+		TIME_M->init();
+		EFFECT_M->init();
+		SOUND_M->init();
+		SCENE_M->init();
+		KEYANI_M->init();
 		TXTDATA->init();
 		INIDATA->init();
 	}
@@ -50,29 +50,29 @@ void gameNode::release()
 	{
 	//	KillTimer(_hWnd, 1);
 
-		KEYMANAGER->release();
-		KEYMANAGER->releaseSingleton();
+		KEY_M->release();
+		KEY_M->releaseSingleton();
 
-		IMAGEMANAGER->release();
-		IMAGEMANAGER->releaseSingleton();
+		IMAGE_M->release();
+		IMAGE_M->releaseSingleton();
 
 		TXTDATA->release();
 		TXTDATA->releaseSingleton();
 
-		TIMEMANAGER->release();
-		TIMEMANAGER->releaseSingleton();
+		TIME_M->release();
+		TIME_M->releaseSingleton();
 
-		EFFECTMANAGER->release();
-		EFFECTMANAGER->releaseSingleton();
+		EFFECT_M->release();
+		EFFECT_M->releaseSingleton();
 
-		SOUNDMANAGER->release();
-		SOUNDMANAGER->releaseSingleton();
+		SOUND_M->release();
+		SOUND_M->releaseSingleton();
 
-		SCENEMANAGER->release();
-		SCENEMANAGER->releaseSingleton();
+		SCENE_M->release();
+		SCENE_M->releaseSingleton();
 
-		KEYANIMANAGER->release();
-		KEYANIMANAGER->releaseSingleton();
+		KEYANI_M->release();
+		KEYANI_M->releaseSingleton();
 
 		INIDATA->release();
 		INIDATA->releaseSingleton();

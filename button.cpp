@@ -29,7 +29,7 @@ HRESULT button::init(const char * imageName, float x, float y, POINT btnDownFram
 
 	//버튼 이미지
 	_imageName = imageName;
-	_image = IMAGEMANAGER->findImage(imageName);
+	_image = IMAGE_M->findImage(imageName);
 
 	_rc = RectMakeCenter(x, y, _image->getFrameWidth(), _image->getFrameHeight());
 
@@ -45,11 +45,11 @@ void button::update()
 {
 	if (PtInRect(&_rc, _ptMouse))
 	{
-		if (KEYMANAGER->isOnceKeyDown(VK_LBUTTON))
+		if (KEY_M->isOnceKeyDown(VK_LBUTTON))
 		{
 			_direction = BUTTONDIRECTION_DOWN;
 		}
-		else if (KEYMANAGER->isOnceKeyUp(VK_LBUTTON) && _direction == BUTTONDIRECTION_DOWN)
+		else if (KEY_M->isOnceKeyUp(VK_LBUTTON) && _direction == BUTTONDIRECTION_DOWN)
 		{
 			_direction = BUTTONDIRECTION_UP;
 			_callbackFunction();
