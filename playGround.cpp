@@ -133,8 +133,8 @@ void playGround::render()
 	}
 	//Rectangle(getMemDC(), _tempY[0]);
 
-	TIME_M->render(getMemDC());
-
+	TIMEMANAGER->render(getMemDC());
+	
 	//=============================================
 	_backBuffer->render(getHDC(), 0, 0);
 }
