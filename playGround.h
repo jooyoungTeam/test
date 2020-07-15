@@ -7,8 +7,9 @@ class playGround : public gameNode
 {
 private:
 	int _strength;
-	char* _intel;
-	
+	char* _intel;	
+	int	_test;
+
 public:
 	playGround();
 	~playGround();
