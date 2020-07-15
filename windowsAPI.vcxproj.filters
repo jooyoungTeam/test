@@ -55,6 +55,21 @@
     <Filter Include="playGround\ghostNGoblinScene">
       <UniqueIdentifier>{02a24952-1b4d-4759-8116-c01e7f9a336d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="playGround\enemy">
+      <UniqueIdentifier>{0ce3c085-b6db-4634-b5f6-0d534715351a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\player">
+      <UniqueIdentifier>{13df3700-5192-4506-98dc-76c9e070fd24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\item">
+      <UniqueIdentifier>{ceba7bcb-fc92-4d81-88b0-d70fef38e9dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\UI">
+      <UniqueIdentifier>{384bde81-bee5-4be1-b7ed-ea2dc0d4325f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="playGround\object">
+      <UniqueIdentifier>{d8f84758-df5f-4e48-94eb-7d9570ab372e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
